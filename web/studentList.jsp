@@ -19,7 +19,7 @@
         <th>报名日期</th>
         <th>状态</th>
     </tr>
-    <c:forEach var="student" items="${students}">
+    <c:forEach var="students" items="${student}">
         <tr>
             <td>${student.id}</td>
             <td>${student.name}</td>

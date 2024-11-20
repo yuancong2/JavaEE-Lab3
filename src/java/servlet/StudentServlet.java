@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ import model.Student;
  *
  * @author 12906
  */
+@WebServlet(name = "StudentServlet", urlPatterns = {"/StudentServlet"})
 public class StudentServlet extends HttpServlet {
     private StudentDAO studentDAO = new StudentDAO();
 
@@ -44,6 +46,6 @@ public class StudentServlet extends HttpServlet {
         student.setStatus(status);
 
         studentDAO.addStudent(student);
-        response.sendRedirect("students");
+        response.sendRedirect("StudentServlet");
     }
 }
