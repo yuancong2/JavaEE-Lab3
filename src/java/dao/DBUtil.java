@@ -1,27 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
-/**
- *
- * @author 12906
- */
 public class DBUtil {
-    private static final String URL = "jdbc:mysql://10.61.67.18:3306/driving_school";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static DataSource dataSource;
 
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+    static {
+        try {
+            // 使用 JNDI 查找数据源
+            Context context = new InitialContext();
+            dataSource = (DataSource) context.lookup("jdbc/drivingSchoolDB");
+        } catch (NamingException e) {
+            e.printStackTrace();
+            throw new ExceptionInInitializerError("初始化数据源失败：" + e.getMessage());
+        }
     }
 
+    // 获取数据库连接
+    public static Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
+    }
+
+    // 关闭数据库连接
     public static void closeConnection(Connection conn) {
         if (conn != null) {
             try {

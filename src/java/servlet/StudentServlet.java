@@ -25,14 +25,20 @@ import model.Student;
 public class StudentServlet extends HttpServlet {
     private StudentDAO studentDAO = new StudentDAO();
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 查询所有学员
-        List<Student> students = studentDAO.getAllStudents();
-        request.setAttribute("students", students);
-        request.getRequestDispatcher("/studentList.jsp").forward(request, response);
+        // 设置请求和响应的编码
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        List<Student> students = studentDAO.getAllStudents(); // 查询数据库
+        request.setAttribute("students", students);          // 设置到 request 中
+        request.getRequestDispatcher("/studentList.jsp").forward(request, response); // 转发到 JSP
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 设置请求和响应的编码
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         // 添加新学员
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
