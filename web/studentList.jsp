@@ -20,9 +20,9 @@
         <th>报名日期</th>
         <th>状态</th>
         <th>教练ID</th>
-        <th>第一节课</th>
-        <th>第二节课</th>
-        <th>第三节课</th>
+        <th>科目一</th>
+        <th>科目二</th>
+        <th>科目三</th>
     </tr>
     <c:forEach var="student" items="${students}">
         <tr>
@@ -32,9 +32,37 @@
             <td>${student.registration_date}</td>
             <td>${student.status}</td>
             <td>${student.coach_id}</td>
-            <td>${student.session_one}</td>
-            <td>${student.session_two}</td>
-            <td>${student.session_three}</td>
+            <td>
+                <c:choose>
+                    <c:when test="${student.session_one == 1}">
+                        已通过
+                    </c:when>
+                    <c:otherwise>
+                        未通过
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${student.session_two == 1}">
+                        已通过
+                    </c:when>
+                    <c:otherwise>
+                        未通过
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${student.session_three == 1}">
+                        已通过
+                    </c:when>
+                    <c:otherwise>
+                        未通过
+                    </c:otherwise>
+                </c:choose>
+            </td>
+            <td><a href="editStudent.jsp?id=${student.id}">修改</a></td>
         </tr>
     </c:forEach>
     <c:if test="${empty students}">

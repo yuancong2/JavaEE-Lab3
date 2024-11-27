@@ -63,4 +63,45 @@ public void addStudent(Student student) {
         e.printStackTrace();
     }
 }
+
+public void updateStudent(Student student) {
+    String sql = "UPDATE student SET name = ?, phone = ?, registration_date = ?, status = ? WHERE id = ?";
+    try (Connection conn = DBUtil.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        pstmt.setString(1, student.getName());
+        pstmt.setString(2, student.getPhone());
+        pstmt.setString(3, student.getRegistration_date());
+        pstmt.setString(4, student.getStatus());
+        pstmt.setInt(5, student.getId());
+        pstmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+public Student getStudentById(int id) {
+    String sql = "SELECT * FROM student WHERE id = ?";
+    try (Connection conn = DBUtil.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        pstmt.setInt(1, id);
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                Student student = new Student();
+                student.setId(rs.getInt("id"));
+                student.setName(rs.getString("name"));
+                student.setPhone(rs.getString("phone"));
+                student.setRegistration_date(rs.getString("registration_date"));
+                student.setStatus(rs.getString("status"));
+                return student;
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+
+
 }
