@@ -7,7 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <meta charset="GBK">
+    <meta charset="UTF-8">
     <title>学员列表</title>
 </head>
 <body>
@@ -19,19 +19,27 @@
         <th>电话</th>
         <th>报名日期</th>
         <th>状态</th>
+        <th>教练ID</th>
+        <th>第一节课</th>
+        <th>第二节课</th>
+        <th>第三节课</th>
     </tr>
     <c:forEach var="student" items="${students}">
         <tr>
             <td>${student.id}</td>
             <td>${student.name}</td>
             <td>${student.phone}</td>
-            <td>${student.registrationDate}</td>
+            <td>${student.registration_date}</td>
             <td>${student.status}</td>
+            <td>${student.coach_id}</td>
+            <td>${student.session_one}</td>
+            <td>${student.session_two}</td>
+            <td>${student.session_three}</td>
         </tr>
     </c:forEach>
     <c:if test="${empty students}">
         <tr>
-            <td colspan="5">没有学员信息</td>
+            <td colspan="9">没有学员信息</td>
         </tr>
     </c:if>
 </table>
