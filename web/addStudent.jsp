@@ -14,7 +14,8 @@
 <form action="StudentServlet" method="post">
     姓名: <input type="text" name="name" required><br>
     电话: <input type="text" name="phone" required><br>
-    报名日期: <input type="date" name="registrationDate" required><br>
+    报名日期: <input type="date" name="registration_date" required><br>
+    教练ID: <input type="text" name="coachId" required><br>
     <input type="submit" value="添加">
 </form>
 </body>
