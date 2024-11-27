@@ -5,14 +5,23 @@
  */
 package model;
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 /**
  *
  * @author SP
  */
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 public class Vehicle {
     private int id;
     private String licensePlate;
     private String model;
+<<<<<<< Updated upstream
     private String status = "可用"; // 默认值
     private String remark;
 
@@ -21,6 +30,14 @@ public class Vehicle {
         return id;
     }
 
+=======
+    private String status;
+    private String remark;
+
+    public int getId() {
+        return id;
+    }
+>>>>>>> Stashed changes
     public void setId(int id) {
         this.id = id;
     }
@@ -28,7 +45,10 @@ public class Vehicle {
     public String getLicensePlate() {
         return licensePlate;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
     }
@@ -36,7 +56,10 @@ public class Vehicle {
     public String getModel() {
         return model;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public void setModel(String model) {
         this.model = model;
     }
@@ -44,7 +67,10 @@ public class Vehicle {
     public String getStatus() {
         return status;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public void setStatus(String status) {
         this.status = status;
     }
@@ -52,9 +78,15 @@ public class Vehicle {
     public String getRemark() {
         return remark;
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public void setRemark(String remark) {
         this.remark = remark;
     }
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
