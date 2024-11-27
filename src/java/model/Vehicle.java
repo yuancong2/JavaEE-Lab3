@@ -5,22 +5,22 @@
  */
 package model;
 
+
 /**
  *
  * @author SP
  */
+
 public class Vehicle {
     private int id;
     private String licensePlate;
     private String model;
-    private String status = "可用"; // 默认值
+    private String status;
     private String remark;
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -28,7 +28,6 @@ public class Vehicle {
     public String getLicensePlate() {
         return licensePlate;
     }
-
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
     }
@@ -36,7 +35,6 @@ public class Vehicle {
     public String getModel() {
         return model;
     }
-
     public void setModel(String model) {
         this.model = model;
     }
@@ -44,7 +42,6 @@ public class Vehicle {
     public String getStatus() {
         return status;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }
@@ -52,9 +49,7 @@ public class Vehicle {
     public String getRemark() {
         return remark;
     }
-
     public void setRemark(String remark) {
         this.remark = remark;
     }
 }
-
