@@ -11,7 +11,7 @@
 </head>
 <body>
 <h2>添加学员</h2>
-<form action="students" method="post">
+<form action="StudentServlet" method="post">
     姓名: <input type="text" name="name" required><br>
     电话: <input type="text" name="phone" required><br>
     报名日期: <input type="date" name="registrationDate" required><br>
